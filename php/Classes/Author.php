@@ -2,9 +2,9 @@
 
 namespace Edu\snelson54\objectOriented;
 
-require_once(dirname(__DIR__, 2) . "composer.json/autoload.php");
+require_once(dirname(__DIR__, 2) . "vendor/autoload.php");
 
-use Ramsey\ValidateUuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Cross Section of Author
