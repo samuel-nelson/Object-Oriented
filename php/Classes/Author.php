@@ -19,7 +19,7 @@ class author {
 	use ValidateUuid;
 	/**
 	 * id for this Author; this is the primary key
-	 * @var Uuid $authorId
+	 * @var $authorId
 	 **/
 	private $authorId;
 	/**
