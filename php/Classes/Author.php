@@ -65,7 +65,7 @@ class author {
 	/**
 	 * mutator method for author id
 	 *
-	 * @param  Uuid| string $newAuthorId value of new author id
+	 * @param  ValidateUuid| string $newAuthorId value of new author id
 	 * @throws \RangeException if $newAuthorId is not positive
 	 * @throws \TypeError if the author Id is not
 	 **/
