@@ -2,9 +2,9 @@
 
 namespace Edu\snelson54\objectOriented;
 
-require_once(dirname(__DIR__, 2) . "/composer.json/autoload.php");
+require_once(dirname(__DIR__, 2) . "composer.json/autoload.php");
 
-use Ramsey\Uuid\Uuid;
+use Ramsey\ValidateUuid\Uuid;
 
 /**
  * Cross Section of Author
@@ -48,9 +48,6 @@ class author {
 	 **/
 	private $authorUsername;
 
-	public function getAuthorId(): Uuid {
-		return ($this->authorId);
-	}
 
 	// BREAK
 
@@ -156,7 +153,7 @@ class author {
 	 * @throws \RangeException if $newAuthorEmail is > 128 characters
 	 * @throws \TypeError if $newAuthorEmail is not a string
 	 **/
-	public function setAuthorEmail(string $newAuthorEmail): void {
+	public function setAuthorEmail(?string $newAuthorEmail): void {
 		// verify the email is secure
 		$newAuthorEmail = trim($newAuthorEmail);
 		$newAuthorEmail = filter_var($newAuthorEmail, FILTER_VALIDATE_EMAIL);
@@ -194,8 +191,8 @@ class author {
 			throw(new \InvalidArgumentException("author password hash empty or insecure"));
 		}
 		//enforce the hash is really an Argon hash
-		$authorHashInfo = password_get_info($newAuthorHash);
-		if($AuthorHashInfo["algoName"] !== "argon2i") {
+		$newAuthorHashInfo = password_get_info($newAuthorHash);
+		if($newAuthorHashInfo["algoName"] !== "argon2i") {
 			throw(new \InvalidArgumentException("author hash is not a valid hash"));
 		}
 		//enforce that the hash is exactly 97 characters.
