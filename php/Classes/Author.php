@@ -1,6 +1,6 @@
 <?php
 
-namespace Edu\snelson54\objectOriented;
+namespace Snelson54\objectOriented;
 
 require_once(dirname(__DIR__, 1) . "vendor/autoload.php");
 

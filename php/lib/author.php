@@ -3,8 +3,8 @@
 // use the new keyword to call the constructor in the class and add all required parameters
 //  var_dump() the result from the step above
 
-require_once(dirname(__DIR__) . "/vendor/autoload.php");
-require_once(dirname(__DIR__) . "/classes/autoload.php");
+require_once(dirname(__DIR__, 1) . "/vendor/autoload.php");
+require_once(dirname(__DIR__, 1) . "/classes/autoload.php");
 
 use Snelson54\objectOriented\Author;
 
