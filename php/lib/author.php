@@ -8,6 +8,6 @@ require_once(dirname(__DIR__) . "/Classes/autoload.php");
 
 use Snelson54\ObjectOriented\Author;
 
-	$authorId = new Author('68fb073ca8494305b623c8cc061710c6', 'google.com', '667567', 'snelson54@cnm.edu', 'snelson54', '$argon2i$v=19$m=1024,t=384,p=2$T1B6Ymdqa3FJdmZqaDdqYg$hhyC1jf2WjbgfD8Jp6GZE9Tg3IpsYpXKm2VWYOJq8LA');
+	$authorId = new Author("bd9be6bc-8ddd-4824-97f2-d5f2e18167f3", 'google.com', 'bd9be6bc8ddd482497f2d5f2e18167f3', 'snelson54@cnm.edu', 'snelson54', '$argon2i$v=19$m=1024,t=384,p=2$T1B6Ymdqa3FJdmZqaDdqYg$hhyC1jf2WjbgfD8Jp6GZE9Tg3IpsYpXKm2VWYOJq8LA');
 
 var_dump($authorId);
