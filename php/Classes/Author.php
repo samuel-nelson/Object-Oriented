@@ -51,62 +51,17 @@ class author {
 
 	// BREAK
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	public function __construct($newAuthorId, $newAuthorUsername, string $newAuthorEmail, $newAuthorAvatarUrl= null) {
-		/**
-		 * inserts this Author into mySQL
-		 *
-		 * @param \PDO $pdo PDO connection object
-		 * @throws \PDOException when mySQL related errors occur
-		 * @throws \TypeError if $pdo is not a PDO connection object
-		 **/
-		public
-		function insert(\PDO $pdo): void {
-
-			// create query template
-			$query = "INSERT INTO author(authorId,authorUsername, authorEmail, authorAvatarUrl) VALUES(:authorId, :authorUsername, :authorEmail, :authorAvatarUrl)";
-			$statement = $pdo->prepare($query);
-
-			// bind the member variables to the place holders in the template
-			$parameters = ["tweetId" => $this->authorEmail->getBytes(), "authorEmail" => $this->authorId->getBytes(), "authorId" => $this->authorUsername, "authorUsername" => $formattedDate];
-			$statement->execute($parameters);
+	public function __construct(string $newAuthorId, string $newAuthorAvatarUrl, string $newAuthorActivationToken, string $newAuthorEmail, string $newAuthorUsername, string $newAuthorHash) {
+		try {
+			$this->setAuthorId($newAuthorId);
+			$this->setAuthorAvatarUrl($newAuthorAvatarUrl);
+			$this->setAuthorActivationToken($newAuthorActivationToken);
+			$this->setAuthorEmail($newAuthorEmail);
+			$this->setAuthorUsername($newAuthorUsername);
+			$this->setAuthorHash($newAuthorHash);
+		} catch(\InvalidArgumentException | \RangeException |\Exception | \TypeError $exception) {
+			echo "Error, invalid content.";
 		}
-		/**
-		 * deletes this Author from mySQL
-		 *
-		 * @param \PDO $pdo PDO connection object
-		 * @throws \PDOException when mySQL related errors occur
-		 * @throws \TypeError if $pdo is not a PDO connection object
-		 **/
-		public
-		function delete(\PDO $pdo): void {
-
-			// create query template
-			$query = "DELETE FROM author WHERE authorId = :authorId";
-			$statement = $pdo->prepare($query);
-
-			// bind the member variables to the place holder in the template
-			$parameters = ["authorId" => $this->authorId->getBytes()];
-			$statement->execute($parameters);
-		}
-
-		/**
-		 * updates this Author in mySQL
-		 *
-		 * @param \PDO $pdo PDO connection object
-		 * @throws \PDOException when mySQL related errors occur
-		 * @throws \TypeError if $pdo is not a PDO connection object
-		 **/
-		public
-		function update(\PDO $pdo): void {
-
-			// create query template
-			$query = "UPDATE author SET authorId = :authorId, authorEmail = :authorEmail WHERE authorId = :authorId";
-			$statement = $pdo->prepare($query);
-			$parameters = ["authorId" => $this->AuthorId->getBytes(), "authorId" => $this->authorId->getBytes(), "authorEmail" => $this->authorEmail, "authorEmail"];
-			$statement->execute($parameters);
-		}
-	}
-		/**
 	}
 
 	/**
