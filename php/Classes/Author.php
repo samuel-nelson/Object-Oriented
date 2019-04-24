@@ -126,7 +126,7 @@ class Author {
 	public function setAuthorAvatarUrl(string $newAuthorAvatarUrl): void {
 		// verify that the Url is secure
 		$newAuthorAvatarUrl = trim($newAuthorAvatarUrl);
-		$newAuthorAvatarUrl = filter_var($newAuthorAvatarUrl, FILTER_SANITIZE_STRING, FILTER_FLAGNO_ENCODE_QUOTES);
+		$newAuthorAvatarUrl = filter_var($newAuthorAvatarUrl, FILTER_SANITIZE_STRING);
 		if(empty($newAuthorAvatarUrl) === true) {
 			throw(new \InvalidArgumentException("author url is empty or insecure"));
 		}
