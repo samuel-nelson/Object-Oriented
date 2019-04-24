@@ -1,5 +1,5 @@
 <?php
-namespace Snelson54\objectOriented;
+namespace Snelson54\ObjectOriented;
 /**
  * Trait to Validate a mySQL Date
  *

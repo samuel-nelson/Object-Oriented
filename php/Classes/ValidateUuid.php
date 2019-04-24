@@ -1,6 +1,6 @@
 <?php
-namespace Edu\snelson54\objectOriented;
-require_once(dirname(__DIR__, 2) . "/composer.json");
+namespace Snelson54\ObjectOriented;
+require_once(dirname(__DIR__) . "/vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
  * Trait to validate a uuid

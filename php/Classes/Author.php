@@ -1,8 +1,8 @@
 <?php
 
-namespace Snelson54\objectOriented;
+namespace Snelson54\ObjectOriented;
 
-require_once(dirname(__DIR__, 1) . "vendor/autoload.php");
+require_once(dirname(__DIR__) . "/vendor/autoload.php");
 
 use Ramsey\Uuid\Uuid;
 
@@ -36,7 +36,7 @@ class author {
 	 * email for this Profile; this is a unique index
 	 * @var string $authorEmail
 	 **/
-	private $authorEmail;
+	private $authorEmail;2
 	/**
 	 * hash for author password
 	 * @var $authorHash
@@ -49,8 +49,6 @@ class author {
 	private $authorUsername;
 
 
-	// BREAK
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	public function __construct(string $newAuthorId, string $newAuthorAvatarUrl, string $newAuthorActivationToken, string $newAuthorEmail, string $newAuthorUsername, string $newAuthorHash) {
 		try {
 			$this->setAuthorId($newAuthorId);
