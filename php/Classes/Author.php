@@ -3,7 +3,7 @@ namespace Snelson54\ObjectOriented;
 require_once(dirname(__DIR__) . "/vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
- *@author Nick Schnepple <nickschnepple@cnm.edu>
+ *@author Sam Nelson <snelson54@cnm.edu>
  **/
 class Author {
 	use ValidateUuid;
