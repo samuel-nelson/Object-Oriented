@@ -300,7 +300,7 @@ class Author {
 	$statement = $pdo->prepare($query);
 
 	// bind the author id to the place holder in the template
-	$parameters = ["authorId" => $this->authorId->getBytes()];
+		$parameters = ["authorId" => $this->authorId->getBytes()];
 	$statement->execute($parameters);
 
 	//grab the author from mySQL
@@ -317,5 +317,35 @@ class Author {
 	}
 	return($author);
 	}
+	/**
+	 * gets all authors
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @return \SplFixedArray SplFixedArray of authors found or null if not found
+	 *
+	 * @throws \PDOException when mySQL related errors occur
+	 * @throws \TypeError whe variables are not in the correct data type
+	 */
+	public static function getAllAuthors(PDO $pdo) : \SplFixedArray {
+		//create query template
+		$query = "SELECT authorId, authorAvatarUrl, authorActivationToken, authorEmail, authorUsername, authorHash";
 
+		$statement = $pdo->prepare($query);
+		$statement->execute();
+
+//build an array of authors
+		$authors = new \SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(\PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !== false) {
+			try{
+				$author = new Author($row["authorId"], $row["authorAvatarUrl"], ["authorActivationToken"], ["authorEmail"], ["authorUsername"], ["authorHash"]);
+				$authors[$authors->key()] = $author;
+				$authors->next();
+			} catch(\Exception $exception) {
+				//if the row couldn't be converted rethrow it
+				throw(new \PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return($authors);
+	}
 }
